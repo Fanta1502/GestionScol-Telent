@@ -1,0 +1,93 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+      <a class="nav-link" routerLink="/pages/dashboard" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Dashboard</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': annee_scolaire.isActive }" *ngIf="isAdmin == true">
+      <a class="nav-link" routerLink="/pages/annee_scolaire" routerLinkActive #annee_scolaire="routerLinkActive">
+        <span class="menu-title">Annee scolaire</span>
+        <i class="mdi mdi-calendar-text menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': classe.isActive }" *ngIf="isAdmin == true">
+      <a class="nav-link" routerLink="/pages/classe" routerLinkActive #classe="routerLinkActive">
+        <span class="menu-title">Classe</span>
+        <i class="mdi mdi-label-outline menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': etablissement.isActive }" *ngIf="isAdmin == true">
+      <a class="nav-link" routerLink="/pages/etablissement" routerLinkActive #etablissement="routerLinkActive">
+        <span class="menu-title">Etablissement</span>
+        <i class="mdi mdi-home-modern menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': user.isActive }" *ngIf="isAdmin == true">
+      <a class="nav-link" routerLink="/pages/users" routerLinkActive #user="routerLinkActive">
+        <span class="menu-title">Compte utilisateur</span>
+        <i class="mdi mdi mdi-account-multiple menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': enseignant.isActive }"
+      *ngIf="isSecretaire == true || isEconome == true">
+      <a class="nav-link" routerLink="/pages/enseignant" routerLinkActive #enseignant="routerLinkActive">
+        <span class="menu-title">Enseignant</span>
+        <i class="mdi mdi mdi-account menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': eleves.isActive }" *ngIf="isSecretaire == true || isEconome == true">
+      <a class="nav-link" routerLink="/pages/eleves" routerLinkActive #eleves="routerLinkActive">
+        <span class="menu-title">Elève</span>
+        <i class="mdi mdi mdi-account-multiple menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': personnel.isActive }" *ngIf="isSecretaire == true || isEconome == true">
+      <a class="nav-link" routerLink="/pages/personnel" routerLinkActive #personnel="routerLinkActive">
+        <span class="menu-title">Personnel</span>
+        <i class="mdi mdi-account-multiple-outline menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': depense.isActive }" *ngIf="isEconome == true">
+      <a class="nav-link" routerLink="/pages/depense" routerLinkActive #depense="routerLinkActive">
+        <span class="menu-title">Depense</span>
+        <i class="mdi mdi-chart-line menu-icon"></i>
+      </a>
+    </li>
+   <!-- <li class="nav-item" [ngClass]="{ 'active': charts.isActive }">
+      <a class="nav-link" routerLink="/pages/charts/chartjs" routerLinkActive #charts="routerLinkActive">
+        <span class="menu-title">Charts</span>
+        <i class="mdi mdi-chart-bar menu-icon"></i>
+      </a>
+    </li> -->
+      <!--<li class="nav-item" [ngClass]="{ 'active': tables.isActive }">
+      <a class="nav-link" routerLink="/pages/tables/basic-table" routerLinkActive #tables="routerLinkActive">
+        <span class="menu-title">Tables</span>
+        <i class="mdi mdi-table-large menu-icon"></i>
+      </a>
+    </li> -->
+    <!-- <li class="nav-item" [ngClass]="{ 'active': icons.isActive }">
+      <a class="nav-link" routerLink="/pages/icons/mdi" routerLinkActive #icons="routerLinkActive">
+        <span class="menu-title">Icons</span>
+        <i class="mdi mdi-contacts menu-icon"></i>
+      </a>
+    </li> -->
+    <!-- <li class="nav-item" [ngClass]="{ 'active' : blankPage.isActive || login.isActive || register.isActive || error404.isActive || error500.isActive }">
+      <a class="nav-link" (click)="samplePagesCollapsed = !samplePagesCollapsed"  [attr.aria-expanded]="samplePagesCollapsed" aria-controls="auth">
+        <span class="menu-title">Sample Pages</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-medical-bag menu-icon"></i>
+      </a>
+      <div class="collapse" id="auth" [ngbCollapse]="!samplePagesCollapsed">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="/pages/general-pages/blank-page" routerLinkActive="active" #blankPage="routerLinkActive"> Blank Page </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/auth/login" routerLinkActive="active" #login="routerLinkActive"> Login </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/pages/user-pages/register" routerLinkActive="active" #register="routerLinkActive"> Register </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/pages/error-pages/404" routerLinkActive="active" #error404="routerLinkActive"> 404 </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/pages/error-pages/500" routerLinkActive="active" #error500="routerLinkActive"> 500 </a></li>
+        </ul>
+      </div>
+    </li> -->
+  </ul>
+</nav>

@@ -1,0 +1,99 @@
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h3>
+                Modifier un utilisateur
+            </h3>
+            <form class="form-sample" [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+                <div>
+                    <div>
+                        <div class="form-group">
+                            <label>Nom d'utilisateur <i style="color: red;">
+                                    *</i></label>
+                            <div>
+                                <input type="text" class="form-control" formControlName="username"
+                                    [ngClass]="{ 'is-invalid': submitted && f.username.errors}">
+                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Le nom d'utilisateur est obligatoire</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label>E-mail <i style="color: red;">
+                                    *</i></label>
+                            <div>
+                                <input type="text" class="form-control" formControlName="email"
+                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">L'email est obligatoire
+                                    </div>
+                                    <div *ngIf="f.email.errors.email">E-mail incorrect</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label>Prénom <i style="color: red;">
+                                    *</i></label>
+                            <div>
+                                <input type="text" class="form-control" formControlName="prenom"
+                                    [ngClass]="{ 'is-invalid': submitted && f.prenom.errors}">
+                                <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                                    <div *ngIf="f.prenom.errors.required">Le prénom est obligatoire</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label>Nom <i style="color: red;">
+                                    *</i></label>
+                            <div>
+                                <input type="text" class="form-control" formControlName="nom"
+                                    [ngClass]="{ 'is-invalid': submitted && f.nom.errors}">
+                                <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                    <div *ngIf="f.nom.errors.required">Le nom est obligatoire</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label>Post <i style="color: red;">
+                                    *</i></label>
+                            <div>
+                                <input type="text" class="form-control" formControlName="poste"
+                                    [ngClass]="{ 'is-invalid': submitted && f.poste.errors}">
+                                <div *ngIf="submitted && f.poste.errors" class="invalid-feedback">
+                                    <div *ngIf="f.poste.errors.required">Le poste est obligatoire</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label>Téléphone <i style="color: red;">
+                                    *</i></label>
+                            <div>
+                                <input type="text" class="form-control" formControlName="telephone"
+                                    [ngClass]="{ 'is-invalid': submitted && f.telephone.errors}">
+                                <div *ngIf="submitted && f.telephone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.telephone.errors.required">Le numéro de téléphone est obligatoire
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br><br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-gradient-dark btn-fw"
+                        (click)="close()">Annuler</button>&nbsp;&nbsp;
+                    <button type="submit" class="btn btn-gradient-primary btn-fw">Modifier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

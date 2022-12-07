@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-body">
+        <h3>
+            Ajouter une mensualité
+        </h3><br>
+        <form class="form-sample" [formGroup]="addForm" (ngSubmit)="onSubmit(addForm)">
+            <div>
+                <div>
+                    <div class="form-group">
+                        <label>Montant <i style="color: red;">
+                                *</i></label><br>
+                        <div>
+                            <input type="number" class="form-control" formControlName="montant_paye"
+                                [ngClass]="{ 'is-invalid': submitted && f.montant_paye.errors}">
+                            <div *ngIf="submitted && f.montant_paye.errors" class="invalid-feedback">
+                                <div *ngIf="f.montant_paye.errors.required">Le montant est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Mode de paiement <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="text" class="form-control" formControlName="mode_paiement"
+                                [ngClass]="{ 'is-invalid': submitted && f.mode_paiement.errors}">
+                            <div *ngIf="submitted && f.mode_paiement.errors" class="invalid-feedback">
+                                <div *ngIf="f.mode_paiement.errors.required">Le mode de paiement est obligatoire !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Nom et prénom du payeur <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="text" class="form-control" formControlName="nom_prenom_payeur"
+                                [ngClass]="{ 'is-invalid': submitted && f.nom_prenom_payeur.errors}">
+                            <div *ngIf="submitted && f.nom_prenom_payeur.errors" class="invalid-feedback">
+                                <div *ngIf="f.nom_prenom_payeur.errors.required">Le nom et le prénom du payeur est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Periode<i style="color: red;">
+                                *</i></label><br>
+                        <div>
+                            <select class="form-control" id="exampleFormControlSelect1" formControlName="periode" 
+                            [ngClass]="{ 'is-invalid': submitted && f.periode.errors}">
+                                <option *ngFor="let periode of periodes" value="{{periode.id}}">
+                                    {{periode.libelle_periode}} : {{periode.date_debut_periode | date: "dd/MM/yyyy" }} - {{periode.date_fin_periode | date: "dd/MM/yyyy" }}</option>
+                            </select>
+                            <div *ngIf="submitted && f.periode.errors" class="invalid-feedback">
+                                <div *ngIf="f.periode.errors.required">La periode est obligatoire !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br><br>
+            <div style="float: right;">
+                <button type="button" class="btn btn-gradient-dark btn-fw"
+                    (click)="close()">Annuler</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-gradient-primary btn-fw">Ajouter</button>
+            </div>
+        </form>
+    </div>
+</div>

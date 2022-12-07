@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-body">
+        <h3>
+            Modifier une mensualité
+        </h3><br>
+        <form class="form-sample" [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+            <div>
+                <div>
+                    <div class="form-group">
+                        <label>Montant <i style="color: red;">
+                                *</i></label><br>
+                        <div>
+                            <input type="number" class="form-control" formControlName="montant_paye"
+                                [ngClass]="{ 'is-invalid': submitted && f.montant_paye.errors}">
+                            <div *ngIf="submitted && f.montant_paye.errors" class="invalid-feedback">
+                                <div *ngIf="f.montant_paye.errors.required">Le montant est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Mode de paiement <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="text" class="form-control" formControlName="mode_paiement"
+                                [ngClass]="{ 'is-invalid': submitted && f.mode_paiement.errors}">
+                            <div *ngIf="submitted && f.mode_paiement.errors" class="invalid-feedback">
+                                <div *ngIf="f.mode_paiement.errors.required">Le mode de paiement est obligatoire !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Nom et prénom du payeur <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="text" class="form-control" formControlName="nom_prenom_payeur"
+                                [ngClass]="{ 'is-invalid': submitted && f.nom_prenom_payeur.errors}">
+                            <div *ngIf="submitted && f.nom_prenom_payeur.errors" class="invalid-feedback">
+                                <div *ngIf="f.nom_prenom_payeur.errors.required">Le nom et le prénom du payeur est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br><br>
+            <div style="float: right;">
+                <button type="button" class="btn btn-gradient-dark btn-fw"
+                    (click)="close()">Annuler</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-gradient-primary btn-fw">Modifier</button>
+            </div>
+        </form>
+    </div>
+</div>

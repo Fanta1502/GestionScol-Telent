@@ -1,0 +1,103 @@
+<a (click)="back()" href=""><i class="mdi mdi-arrow-left " style="font-size: 22px; color: #8E44AD;"></i></a><br><br>
+<div class="row" *ngIf="user">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="backImg text-center">
+                    <img id="image" src={{image}} alt="imageChange" width="150px" height="152px">
+                </div><br><br>
+                <div>
+                    <div class="text-center" *ngIf="user">
+                        <h2 style="color: #8E44AD;" class="text-center"> {{ user.nom }} {{ user.prenom }}</h2>
+                        {{ user.email }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-inverse-secondary mb-5" *ngIf="success == true">
+        <div class="card-body">
+            <p class="mb-4">
+                Well done! You successfully read this important alert message.
+            </p>
+            <button class="btn btn-secondary d-block d-sm-inline mx-auto">Ok</button>
+            <button class="btn btn-light d-block d-sm-inline mx-auto mt-2 mt-sm-0 ml-sm-1">Cancel</button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Modifier mon profil</h2>
+                <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+                    <!-- <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default" accept="image/*" (change)="imageChange(imageInput.files[0])">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled
+                                placeholder="Upload Image">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-gradient-primary"
+                                    type="button">Upload</button>
+                            </span>
+                        </div>
+                    </div> -->
+                    <div class="form-group row">
+                        <label for="exampleInputUsername1">Nom d'utilisateur <i style="color: red;">
+                                *</i></label>
+                        <input type="text" class="form-control" formControlName="username" [ngModel]="user.username"
+                            id="exampleInputUsername1" placeholder="Nom d'utilisateur">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label">E-mail <i style="color: red;">
+                                *</i></label>
+                        <input type="text" class="form-control" formControlName="email"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">L'email est obligatoire
+                            </div>
+                            <div *ngIf="f.email.errors.email">E-mail incorrect</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="exampleInputUsername1">Nom <i style="color: red;">
+                                        *</i></label>
+                                <input type="text" class="form-control" formControlName="nom"
+                                    id="exampleInputUsername1" placeholder="Nom">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="exampleInputUsername1">Prénom <i style="color: red;">
+                                        *</i></label>
+                                <input type="text" class="form-control" formControlName="prenom"
+                                    id="exampleInputUsername1" placeholder="Prénom">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label>Téléphone <i style="color: red;">
+                                        *</i></label>
+                                <input type="text" class="form-control" formControlName="telephone"
+                                    [ngClass]="{ 'is-invalid': submitted && f.telephone.errors}">
+                                <div *ngIf="submitted && f.telephone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.telephone.errors.required">Le numéro de téléphone est obligatoire
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="label col-sm-3 col-form-label">Image <i style="color: red;">
+                                    *</i> </label>
+                            <input #imageInput class="file-upload-browse btn" type="file" accept="image/*"
+                                (change)="imageChange(imageInput.files[0])">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Modifier</button>
+                    <button class="btn btn-light">Annuler</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

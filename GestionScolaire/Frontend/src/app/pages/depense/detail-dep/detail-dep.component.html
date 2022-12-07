@@ -1,0 +1,25 @@
+<div class="col-lg-15 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div>
+                <i class="mdi mdi-close text-primary" (click)="back()" placement="top" ngbTooltip="Fermer"
+                    style="font-size: 20px;"></i>
+            </div>
+            <hr>
+            <div class="card-title">
+                <h3 style="font-size: 25px;">
+                    <u>Les informations sur <b>{{data.libelle}} :</b></u>
+                </h3>
+            </div>
+            <div>Libélle : <b>{{data.libelle}}</b> </div>
+            <div>Montant : <b>{{data.montant}}</b> </div>
+            <div>Mode de paiement : <b>{{data.mode_paiement}}</b></div>
+            <div>Fournisseur : <b>{{data.fournisseur}}</b></div>
+            <div>Responsable : <b>{{data.responsable}}</b></div>
+            <div>Motif : <b>{{data.motif}}</b></div>
+            <div>Date : <b>{{data.date | date: "dd/MM/yyyy" }}</b></div>
+            <div>Type : <b>{{data.type}}</b></div>
+            <div></div>
+        </div>
+    </div>
+</div>

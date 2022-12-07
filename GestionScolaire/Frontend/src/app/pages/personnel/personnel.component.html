@@ -1,0 +1,106 @@
+<div class="page-header">
+    <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+            <i class="mdi mdi-account-multiple-outline"></i>
+        </span>
+        Gestion du personnel
+    </h3>
+</div>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">                
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="search-field d-none d-md-block">
+                            <form class="d-flex align-items-center h-100" action="#">
+                                <div class="input-group">
+                                    <div class="input-group-prepend  bg-light">
+                                        <i class="input-group-text border-0 mdi mdi-magnify  bg-transparent"></i>
+                                    </div>
+                                    <input type="text" class="form-control bg-light border-0"
+                                        placeholder="Recherche par nom" [(ngModel)]="filterText" name="filterText"
+                                        (change)="onFilterChange()">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div style="float: right;">
+                            <button  *ngIf="isSecretaire==true" class="btn" (click)="onAdd()" placement="top" ngbTooltip="Ajouter un personnel"><i class="mdi mdi-account-multiple-plus text-primary"
+                                    style="font-size: 25px;"></i></button>
+                            <button class="btn" (click)="print()" printTitle="Print Title" printSectionId="print-section" ngxPrint><i
+                                    class="mdi mdi-printer text-primary" style="font-size: 25px;" placement="top" ngbTooltip="Imprimer la liste des personnels"></i></button>
+                        </div>
+                    </div>
+                    <div  *ngIf="isSecretaire==true" class="col-md-1" style="float: right;" placement="top" ngbTooltip="Importer un fichier excel">
+                        <span class="parent-div">
+                            <i class="btn btn-upload border-0 mdi mdi-file-excel text-primary"
+                                style="font-size: 25px;"></i>
+                            <input type="file" name="upfile" accept=".xlsx" (change)="getFile($event)" />
+                        </span>
+                    </div>
+                </div>
+                <div class="table-responsive pt-3" #data id="data">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Matricule
+                                </th>
+                                <th>
+                                    Nom
+                                </th>
+                                <th>
+                                    Prénom
+                                </th>
+                                <th>
+                                    Adresse
+                                </th>
+                                <th>
+                                    Date de naissance
+                                </th>
+                                <th>
+                                    Téléphone
+                                </th>
+                                <th>
+                                    Fonction
+                                </th>
+                                <th>
+                                    Nationalité
+                                </th>
+                                <th *ngIf="noPrint"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let personnel of personnels">
+                                <td>{{personnel.matricule}}</td>
+                                <td>{{personnel.nom}}</td>
+                                <td>{{personnel.prenom}}</td>
+                                <td>{{personnel.adresse}}</td>
+                                <td>{{personnel.date_naissance | date: "dd/MM/yyyy" }}</td>
+                                <td>{{personnel.telephone}}</td>
+                                <td>{{personnel.fonction}}</td>
+                                <td>{{personnel.nationalite}}</td>
+                                <td *ngIf="noPrint">
+                                    <i *ngIf="isSecretaire==true" class="mdi mdi-lead-pencil text-primary" style="font-size: 20px; float: left;"
+                                        (click)="onEdit(personnel)"  placement="top" ngbTooltip="Modifier un personnel"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <i class="mdi mdi-plus-circle text-primary" placement="top" ngbTooltip="Détail"
+                                        style="font-size: 20px;" (click)="detail(personnel)"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i *ngIf="isSecretaire==true" class="mdi mdi-delete text-primary" style="font-size: 20px;"
+                                        (click)="onDelete(personnel)"  placement="top" ngbTooltip="Supprimer un personnel"></i>
+                                        <i *ngIf="isEconome==true" class="mdi mdi-chart-areaspline text-primary" style="font-size: 20px; "
+                                            (click)="Salaire(personnel)"  placement="top" ngbTooltip="Salaire"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer" *ngIf="collectionSize > pageSize">
+                    <ngb-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" [page]="page"
+                        aria-label="Default pagination" class="d-flex justify-content-center"
+                        (pageChange)="pageChange($event)"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>

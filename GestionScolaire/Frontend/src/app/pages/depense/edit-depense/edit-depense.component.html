@@ -1,0 +1,131 @@
+<div class="card">
+    <div class="card-body">
+        <h3>
+            Modifier une depense
+        </h3><br>
+        <form class="form-sample" [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+            <div  class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Libelle <i style="color: red;">
+                                *</i></label><br>
+                        <div  class="col-sm-9">
+                            <input type="text" class="form-control" formControlName="libelle"
+                                [ngClass]="{ 'is-invalid': submitted && f.libelle.errors}">
+                            <div *ngIf="submitted && f.libelle.errors" class="invalid-feedback">
+                                <div *ngIf="f.libelle.errors.required">Le libellé est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Montant <i style="color: red;">
+                                *</i></label><br>
+                        <div  class="col-sm-9">
+                            <input type="number" class="form-control" formControlName="montant"
+                                [ngClass]="{ 'is-invalid': submitted && f.montant.errors}">
+                            <div *ngIf="submitted && f.montant.errors" class="invalid-feedback">
+                                <div *ngIf="f.montant.errors.required">Le montant est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Mode de paiement <i style="color: red;">
+                                *</i></label><br>
+                        <div  class="col-sm-9">
+                            <input type="text" class="form-control" formControlName="mode_paiement"
+                                [ngClass]="{ 'is-invalid': submitted && f.mode_paiement.errors}">
+                            <div *ngIf="submitted && f.mode_paiement.errors" class="invalid-feedback">
+                                <div *ngIf="f.mode_paiement.errors.required">Le mode de paiement est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Fournisseur <i style="color: red;">
+                                *</i></label><br>
+                        <div  class="col-sm-9">
+                            <input type="text" class="form-control" formControlName="fournisseur"
+                                [ngClass]="{ 'is-invalid': submitted && f.fournisseur.errors}">
+                            <div *ngIf="submitted && f.fournisseur.errors" class="invalid-feedback">
+                                <div *ngIf="f.fournisseur.errors.required">Le nom du fournisseur est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Responsable <i style="color: red;">
+                                *</i></label><br>
+                        <div  class="col-sm-9">
+                            <input type="text" class="form-control" formControlName="responsable"
+                                [ngClass]="{ 'is-invalid': submitted && f.responsable.errors}">
+                            <div *ngIf="submitted && f.responsable.errors" class="invalid-feedback">
+                                <div *ngIf="f.responsable.errors.required">Le nom du responsable est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Motif <i style="color: red;">
+                                *</i></label><br>
+                        <div  class="col-sm-9">
+                            <input type="text" class="form-control" formControlName="motif"
+                                [ngClass]="{ 'is-invalid': submitted && f.motif.errors}">
+                            <div *ngIf="submitted && f.motif.errors" class="invalid-feedback">
+                                <div *ngIf="f.motif.errors.required">Le motif est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Date <i style="color: red;">
+                                *</i></label>
+                        <div  class="col-sm-9">
+                            <input type="date" class="form-control" formControlName="date"
+                                [ngClass]="{ 'is-invalid': submitted && f.date.errors || dateSup== true}" >
+                            <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                                <div *ngIf="f.date.errors.required">La date est
+                                    obligatoire !</div>
+                            </div>
+                            <div *ngIf="dateSup == true" class="invalid-feedback">
+                                La date ne peut pas être superieur à la date d'aujourd'hui !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Type <i style="color: red;">
+                                *</i></label><br>
+                        <div  class="col-sm-9">
+                            <input type="text" class="form-control" formControlName="type"
+                                [ngClass]="{ 'is-invalid': submitted && f.type.errors}">
+                            <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                                <div *ngIf="f.type.errors.required">Le type est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br><br>
+            <div style="float: right;">
+                <button type="button" class="btn btn-gradient-dark btn-fw"
+                    (click)="close()">Annuler</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-gradient-primary btn-fw">Modifier</button>
+            </div>
+        </form>
+    </div>
+</div>

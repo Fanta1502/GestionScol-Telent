@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-body">
+        <h3>
+            Ajouter une période
+        </h3><br>
+        <form class="form-sample" [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+            <div>
+                <div>
+                    <div class="form-group">
+                        <label>Libelle de la période <i style="color: red;">
+                                *</i></label><br>
+                        <div>
+                            <input type="text" class="form-control" formControlName="libelle_periode"
+                                [ngClass]="{ 'is-invalid': submitted && f.libelle_periode.errors}">
+                            <div *ngIf="submitted && f.libelle_periode.errors" class="invalid-feedback">
+                                <div *ngIf="f.libelle_periode.errors.required">Le libellé de la période est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Date de début de la période <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="date" class="form-control" formControlName="date_debut_periode"
+                                [ngClass]="{ 'is-invalid': submitted && f.date_debut_periode.errors}">
+                            <div *ngIf="submitted && f.date_debut_periode.errors" class="invalid-feedback">
+                                <div *ngIf="f.date_debut_periode.errors.required">La date de début est obligatoire !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Date de fin <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="date" class="form-control" formControlName="date_fin_periode"
+                                [ngClass]="{ 'is-invalid': submitted && f.date_fin_periode.errors}">
+                            <div *ngIf="submitted && f.date_fin_periode.errors" class="invalid-feedback">
+                                <div *ngIf="f.date_fin_periode.errors.required">La date de début est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br><br>
+            <div style="float: right;">
+                <button type="button" class="btn btn-gradient-dark btn-fw"
+                    (click)="close()">Annuler</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-gradient-primary btn-fw">Modifier</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-body">
+        <h3>
+            Ajouter une nouvelle année scolaire
+        </h3><br>
+        <form class="form-sample" [formGroup]="addForm" (ngSubmit)="onSubmit(addForm)">
+            <div>
+                <div>
+                    <div class="form-group">
+                        <label>Libelle <i style="color: red;">
+                                *</i></label><br>
+                        <div>
+                            <input type="text" class="form-control" formControlName="libele_annee_scolaire"
+                                [ngClass]="{ 'is-invalid': submitted && f.libele_annee_scolaire.errors}">
+                            <div *ngIf="submitted && f.libele_annee_scolaire.errors" class="invalid-feedback">
+                                <div *ngIf="f.libele_annee_scolaire.errors.required">Le libellé de la période est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Date de début <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="date" class="form-control" formControlName="date_debut_annee_scolaire"
+                                [ngClass]="{ 'is-invalid': submitted && f.date_debut_annee_scolaire.errors}">
+                            <div *ngIf="submitted && f.date_debut_annee_scolaire.errors" class="invalid-feedback">
+                                <div *ngIf="f.date_debut_annee_scolaire.errors.required">La date de début est obligatoire !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Date de fin <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="date" class="form-control" formControlName="date_fin_annee_scolaire"
+                                [ngClass]="{ 'is-invalid': submitted && f.date_fin_annee_scolaire.errors}">
+                            <div *ngIf="submitted && f.date_fin_annee_scolaire.errors" class="invalid-feedback">
+                                <div *ngIf="f.date_fin_annee_scolaire.errors.required">La date de début est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br><br>
+            <div style="float: right;">
+                <button type="button" class="btn btn-gradient-dark btn-fw"
+                    (click)="close()">Annuler</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-gradient-primary btn-fw">Ajouter</button>
+            </div>
+        </form>
+    </div>
+</div>

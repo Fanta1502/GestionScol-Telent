@@ -1,0 +1,235 @@
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h3>
+                Ajouter un personnel
+            </h3>
+            <form class="form-sample" [formGroup]="addForm" (ngSubmit)="onSubmit(addForm)">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Matricule <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="matricule"
+                                    [ngClass]="{ 'is-invalid': submitted && f.matricule.errors}">
+                                <div *ngIf="submitted && f.matricule.errors" class="invalid-feedback">
+                                    <div *ngIf="f.matricule.errors.required">Le matricule est obligatoire !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Prénom <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="prenom"
+                                    [ngClass]="{ 'is-invalid': submitted && f.prenom.errors}">
+                                <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                                    <div *ngIf="f.prenom.errors.required">Le prénom est obligatoire !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Nom <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="nom"
+                                    [ngClass]="{ 'is-invalid': submitted && f.nom.errors}">
+                                <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                    <div *ngIf="f.nom.errors.required">Le nom est obligatoire !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Date de naissance <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" formControlName="date_naissance"
+                                    [ngClass]="{ 'is-invalid': submitted && f.date_naissance.errors}">
+                                <div *ngIf="submitted && f.date_naissance.errors" class="invalid-feedback">
+                                    <div *ngIf="f.date_naissance.errors.required">La date de naissance est obligatoire !
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Lieu de naissance <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="lieu_naissance"
+                                    [ngClass]="{ 'is-invalid': submitted && f.lieu_naissance.errors}">
+                                <div *ngIf="submitted && f.lieu_naissance.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lieu_naissance.errors.required">Le lieu de naissance est obligatoire !
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Adresse <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="adresse"
+                                    [ngClass]="{ 'is-invalid': submitted && f.adresse.errors}">
+                                <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+                                    <div *ngIf="f.adresse.errors.required">L'adresse est obligatoire !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Téléphone <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="telephone"
+                                    [ngClass]="{ 'is-invalid': submitted && f.telephone.errors}">
+                                <div *ngIf="submitted && f.telephone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.telephone.errors.required">Le numéro de téléphone est obligatoire !
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Genre <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-4">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" formControlName="genre" class="form-check-input"
+                                            name="genre" id="masculin" value="masculin" checked>
+                                        Masculin
+                                        <i class="input-helper"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" formControlName="genre" class="form-check-input"
+                                            name="genre" id="feminin" value="feminin">
+                                        Féminin
+                                        <i class="input-helper"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Nationalité <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="nationalite"
+                                    [ngClass]="{ 'is-invalid': submitted && f.nationalite.errors}">
+                                <div *ngIf="submitted && f.nationalite.errors" class="invalid-feedback">
+                                    <div *ngIf="f.nationalite.errors.required">La nationalité est obligatoire !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Date de récrutement <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" formControlName="date_recrutement"
+                                    [ngClass]="{ 'is-invalid': submitted && f.date_recrutement.errors}">
+                                <div *ngIf="submitted && f.date_recrutement.errors" class="invalid-feedback">
+                                    <div *ngIf="f.date_recrutement.errors.required">La date de recrutement est
+                                        obligatoire !
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Fonction <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="fonction"
+                                    [ngClass]="{ 'is-invalid': submitted && f.fonction.errors}">
+                                <div *ngIf="submitted && f.fonction.errors" class="invalid-feedback">
+                                    <div *ngIf="f.fonction.errors.required">La fonction est obligatoire !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Statut<i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="statut"
+                                    [ngClass]="{ 'is-invalid': submitted && f.statut.errors}">
+                                <div *ngIf="submitted && f.statut.errors" class="invalid-feedback">
+                                    <div *ngIf="f.statut.errors.required">Le statut est obligatoire !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Role<i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="role"
+                                    [ngClass]="{ 'is-invalid': submitted && f.role.errors}">
+                                <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                                    <div *ngIf="f.role.errors.required">Le role est obligatoire !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Type de contrat <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="type_contrat"
+                                    [ngClass]="{ 'is-invalid': submitted && f.type_contrat.errors}">
+                                <div *ngIf="submitted && f.type_contrat.errors" class="invalid-feedback">
+                                    <div *ngIf="f.type_contrat.errors.required">Le type de contrat est
+                                        obligatoire !
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Durée du contrat <i style="color: red;">
+                                    *</i></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="duree_contrat"
+                                    [ngClass]="{ 'is-invalid': submitted && f.duree_contrat.errors}">
+                                <div *ngIf="submitted && f.duree_contrat.errors" class="invalid-feedback">
+                                    <div *ngIf="f.duree_contrat.errors.required">La durée du contrat est
+                                        obligatoire !
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="float: right;">
+                    <button type="button" class="btn btn-gradient-dark btn-fw"
+                        (click)="close()">Annuler</button>&nbsp;&nbsp;
+                    <button type="submit" class="btn btn-gradient-primary btn-fw">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

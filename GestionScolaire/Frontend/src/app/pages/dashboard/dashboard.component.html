@@ -1,0 +1,96 @@
+<div class="page-header">
+  <h3 class="page-title">
+    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+      <i class="mdi mdi-home"></i>
+    </span>
+    Tableau de bord
+  </h3>
+  <div style="float: right;" *ngIf="barChartData && lineChartData">
+    <div *ngIf="recette > 0"><h3 style="color: green;"><span style="color: black;">Caisse : </span> excédentaire de {{recette}} Fcfa</h3></div>
+    <div *ngIf="recette < 0"><h3 style="color: red;"><span style="color: black;">Caisse : </span>débitaire de {{recette}} Fcfa</h3></div>
+    <div *ngIf="recette == 0"><h3 style="color: blue;"><span style="color: black;">Caisse : </span>Vide</h3></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4 grid-margin stretch-card">
+    <div class="card" *ngIf="feminineleve">
+      <div class="card-body">
+        <h4 class="card-title">Effectifs des élèves</h4>
+        <canvas baseChart [chartType]="'doughnut'" [datasets]="trafficChartData" [labels]="trafficChartLabels"
+          [options]="trafficChartOptions" [colors]="trafficChartColors"></canvas>
+        <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4">
+          <ul>
+            <li>
+              <span class="legend-dots"></span>Filles
+              <span class="float-right">{{feminineleve}}</span>
+            </li>
+            <li>
+              <span class="legend-dots"></span>Garçon
+              <span class="float-right">{{masculuneleve}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 grid-margin stretch-card">
+    <div class="card" *ngIf="femininenseignant">
+      <div class="card-body">
+        <h4 class="card-title">Effectifs des enseignants</h4>
+          <canvas baseChart [chartType]="'pie'" [datasets]="doughnutPieChartData" [labels]="doughnutPieChartLabels"
+            [options]="doughnutPieChartOptions" [colors]="trafficChartColors"></canvas>
+          <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4">
+            <ul>
+              <li>
+                <span class="legend-dots"></span>Femmes
+                <span class="float-right">{{femininenseignant}}</span>
+              </li>
+              <li>
+                <span class="legend-dots"></span>Hommes
+                <span class="float-right">{{masculunenseignant}}</span>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 grid-margin stretch-card">
+    <div class="card" *ngIf="femininpersonnel">
+      <div class="card-body">
+        <h4 class="card-title">Effectifs des personnels</h4>
+          <canvas baseChart [chartType]="'doughnut'" [datasets]="doughnutPieChartDataP" [labels]="doughnutPieChartLabels"
+            [options]="doughnutPieChartOptions" [colors]="trafficChartColors"></canvas>
+          <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4">
+            <ul>
+              <li>
+                <span class="legend-dots"></span>Femmes
+                <span class="float-right">{{femininpersonnel}}</span>
+              </li>
+              <li>
+                <span class="legend-dots"></span>Hommes
+                <span class="float-right">{{masculunpersonnel}}</span>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 grid-margin stretch-card">
+    <div class="card" *ngIf="lineChartData">
+      <div class="card-body">
+        <h4 class="card-title">Les dépenses effectuées au cours de cette année</h4>
+        <canvas baseChart [chartType]="'line'" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 grid-margin stretch-card">
+    <div class="card" *ngIf="barChartData">
+      <div class="card-body">
+        <h4 class="card-title">Les encaissements éffectués au cours de cette année</h4>
+        <canvas baseChart [chartType]="'horizontalBar'" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors"></canvas>
+      </div>
+    </div>
+  </div>
+</div>

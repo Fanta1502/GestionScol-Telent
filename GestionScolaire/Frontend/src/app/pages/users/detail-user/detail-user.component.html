@@ -1,0 +1,65 @@
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h3>
+                Info sur l'utilisateur
+            </h3><br>
+            <form class="form-sample" [formGroup]="editForm">
+                <div>
+                    <div>
+                        <div class="form-group">
+                            <label>Nom d'utilisateur</label>
+                            <div>
+                                <input disabled type="text" class="form-control" formControlName="username">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group ">
+                            <label>E-mail</label>
+                            <div>
+                                <input disabled type="text" class="form-control" formControlName="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group ">
+                            <label>Prénom</label>
+                            <div>
+                                <input disabled type="text" class="form-control" formControlName="prenom">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group ">
+                            <label>Nom</label>
+                            <div>
+                                <input disabled type="text" class="form-control" formControlName="nom">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group ">
+                            <label>Post</label>
+                            <div>
+                                <input disabled type="text" class="form-control" formControlName="poste">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label>Téléphone</label>
+                            <div>
+                                <input disabled type="text" class="form-control" formControlName="telephone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-fw"
+                        (click)="close()">Fermer</button>&nbsp;&nbsp;
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

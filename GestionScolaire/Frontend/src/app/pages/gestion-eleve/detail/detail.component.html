@@ -1,0 +1,30 @@
+<div class="col-lg-15 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div>
+            <i class="mdi mdi-close text-primary" (click)="back()" placement="top" ngbTooltip="Fermer" style="font-size: 20px;"></i>
+        </div><hr>
+            <div class="card-title">
+                <h3 style="font-size: 25px;">
+                    <u>Les informations sur <b>{{currentEleve.nom}} {{currentEleve.prenom}} :</b></u>
+                </h3>
+            </div>
+            <div>Matricule : <b>{{currentEleve.matricule}}</b></div>
+            <div>Nom : <b>{{currentEleve.nom}}</b> </div>
+            <div>Prénom : <b>{{currentEleve.prenom}}</b></div>
+            <div>Genre : <b>{{currentEleve.genre}}</b></div>
+            <div>Date de naissance : <b>{{currentEleve.date_naissance | date: "dd/MM/yyyy" }}</b></div>
+            <div>Lieu de naissance : <b>{{currentEleve.lieu_naissance}}</b></div>
+            <div>Adresse : <b>{{currentEleve.adresse}}</b></div>
+            <div>Téléphone : <b>{{currentEleve.telephone}}</b></div>
+            <div>E-mail d'un parent : <b>{{currentEleve.email_parent}}</b></div>
+            <div>Prénom du père : <b>{{currentEleve.prenom_pere}}</b></div>
+            <div>Profession du père : <b>{{currentEleve.profession_pere}}</b></div>
+            <div>Nom et prénom de la mère : <b>{{currentEleve.nom_prenom_mere}}</b></div>
+            <div>Profession de la mère : <b>{{currentEleve.profession_mere}}</b></div>
+            <div *ngIf="currentEleve.handicap_particuliers != ''"> Handicap particuliers : <b>{{currentEleve.handicap_particuliers}}</b></div>
+            <div *ngIf="currentEleve.maladies_particulieres !=''">Maladies particuliers : <b>{{currentEleve.maladies_particulieres}}</b></div>
+            <div></div>
+        </div>
+    </div>
+</div>

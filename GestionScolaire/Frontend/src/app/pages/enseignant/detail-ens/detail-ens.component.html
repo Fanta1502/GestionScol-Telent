@@ -1,0 +1,28 @@
+<div class="col-lg-15 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div>
+            <i class="mdi mdi-close text-primary" (click)="back()" placement="top" ngbTooltip="Fermer" style="font-size: 20px;"></i>
+        </div><hr>
+            <div class="card-title">
+                <h3 style="font-size: 25px;">
+                    <u>Les informations sur <b>{{data.nom}} {{data.prenom}} :</b></u>
+                </h3>
+            </div>
+            <div>Matricule : <b>{{data.matricule}}</b> </div>
+            <div>Nom : <b>{{data.nom}}</b> </div>
+            <div>Prénom : <b>{{data.prenom}}</b></div>
+            <div>E-mail : <b>{{data.email}}</b></div>
+            <div>Genre : <b>{{data.genre}}</b></div>
+            <div>Date de naissance : <b>{{data.date_naissance | date: "dd/MM/yyyy" }}</b></div>
+            <div>Lieu de naissance : <b>{{data.lieu_naissance }}</b></div>
+            <div>Adresse : <b>{{data.adresse}}</b></div>
+            <div>Téléphone : <b>{{data.telephone}}</b></div>
+            <div>Nationalité : <b>{{data.nationalite}}</b></div>
+            <div>Dernier diplôme : <b>{{data.dernier_diplome}}</b></div>
+            <div>Date de récrutement : <b>{{data.date_recrutement | date: "dd/MM/yyyy" }}</b></div>
+            <div>Etat contractuel : <b>{{data.etat_contractuel}}</b></div>
+            <div></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="card">
+    <div class="card-body">
+        <h3>
+            Modifier une classe
+        </h3><br>
+        <form class="form-sample" [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+            <div>
+                <div>
+                    <div class="form-group">
+                        <label>Nom <i style="color: red;">
+                                *</i></label><br>
+                        <div>
+                            <input type="text" class="form-control" formControlName="nom_classe"
+                                [ngClass]="{ 'is-invalid': submitted && f.nom_classe.errors}">
+                            <div *ngIf="submitted && f.nom_classe.errors" class="invalid-feedback">
+                                <div *ngIf="f.nom_classe.errors.required">Le nom de la classe est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Niveau <i style="color: red;">
+                                *</i></label><br>
+                        <div>
+                            <input type="text" class="form-control" formControlName="niveau_classe"
+                                [ngClass]="{ 'is-invalid': submitted && f.niveau_classe.errors}">
+                            <div *ngIf="submitted && f.niveau_classe.errors" class="invalid-feedback">
+                                <div *ngIf="f.niveau_classe.errors.required">Le niveau est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Sequence <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="text" class="form-control" formControlName="sequence_classe"
+                                [ngClass]="{ 'is-invalid': submitted && f.sequence_classe.errors}">
+                            <div *ngIf="submitted && f.sequence_classe.errors" class="invalid-feedback">
+                                <div *ngIf="f.sequence_classe.errors.required">La sequence est obligatoire !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Nombre de place <i style="color: red;">
+                                *</i></label>
+                        <div>
+                            <input type="number" class="form-control" formControlName="nombre_places"
+                                [ngClass]="{ 'is-invalid': submitted && f.nombre_places.errors}">
+                            <div *ngIf="submitted && f.nombre_places.errors" class="invalid-feedback">
+                                <div *ngIf="f.nombre_places.errors.required">Le nombre de place est
+                                    obligatoire !</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Capacité maximum <i style="color: red;">
+                            *</i></label>
+                    <div>
+                        <input type="number" class="form-control" formControlName="capacite_max_classe"
+                            [ngClass]="{ 'is-invalid': submitted && f.capacite_max_classe.errors}">
+                        <div *ngIf="submitted && f.capacite_max_classe.errors" class="invalid-feedback">
+                            <div *ngIf="f.capacite_max_classe.errors.required">La capacité maximum est
+                                obligatoire !</div>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br><br>
+            <div style="float: right;">
+                <button type="button" class="btn btn-gradient-dark btn-fw"
+                    (click)="close()">Annuler</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-gradient-primary btn-fw">Modifier</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="page-header">
+    <i class="mdi mdi-close text-primary" (click)="close()" placement="top" ngbTooltip="Fermer"
+        style="font-size: 20px;"></i>
+</div>
+<div>
+    <div class="col-lg-12 grid-margin stretch-card" id="print-section">
+        <div class="card" #data id="data">
+            <div class="card-body">
+                <div class="card-title">
+                    <div class="row">
+                        <div *ngIf="valeur" class="col-md-8">
+                            <h3 class="page-title" *ngIf="valeur.genre == 'feminin'">
+                                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                                    <i class="mdi mdi-chart-areaspline"></i>
+                                </span>
+                                La liste des paiements de Mme {{ valeur.nom }} {{valeur.prenom}}
+                            </h3>
+                            <h3 class="page-title"  *ngIf="valeur.genre == 'masculin'">
+                                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                                    <i class="mdi mdi-chart-areaspline"></i>
+                                </span>
+                                La liste des paiements de Mr {{ valeur.nom }} {{valeur.prenom}}
+                            </h3>
+                        </div>
+                        <!-- <div class="col-md-3">
+                            <div class="search-field d-none d-md-block">
+                                <form class="d-flex align-items-center h-100" action="#">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend  bg-light">
+                                            <i class="input-group-text border-0 mdi mdi-magnify  bg-transparent"></i>
+                                        </div>
+                                        <input type="text" class="form-control bg-light border-0"
+                                            placeholder="Recherche par nom" [(ngModel)]="filterText" name="filterText"
+                                            (change)="onFilterChange()">
+                                    </div>
+                                </form>
+                            </div>
+                        </div> -->
+                        <div class="col-md-2">
+                            <div style="float: right;">
+                                <button class="btn" (click)="onAdd()" placement="top"
+                                    ngbTooltip="Inscrire un nouveau paiement"><i
+                                        class="mdi mdi-plus-circle text-primary" style="font-size: 25px;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Matricule
+                                </th>
+                                <th>
+                                    Nom
+                                </th>
+                                <th>
+                                    Prénom
+                                </th>
+                                <th>
+                                    Montant
+                                </th>
+                                <th>
+                                    Date de paiement
+                                </th>
+                                <th>
+                                    Période
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let salaire of lesSalaires">
+                                <td *ngIf="type == 'personnel'"> {{salaire.personnel.matricule}} </td>
+                                <td *ngIf="type == 'personnel'"> {{salaire.personnel.nom}} </td>
+                                <td *ngIf="type == 'personnel'"> {{salaire.personnel.prenom}} </td>
+                                <td *ngIf="type == 'enseignant'"> {{salaire.enseignant.matricule}} </td>
+                                <td *ngIf="type == 'enseignant'"> {{salaire.enseignant.nom}} </td>
+                                <td *ngIf="type == 'enseignant'"> {{salaire.enseignant.prenom}} </td>
+                                <td> {{salaire.montant}} </td>
+                                <td> {{salaire.date_paiement | date: "dd/MM/yyyy" }} </td>
+                                <td> {{salaire.periode.libelle_periode}} : {{salaire.periode.date_debut_periode |
+                                    date: "dd/MM/yyyy" }} - {{salaire.periode.date_fin_periode | date: "dd/MM/yyyy"
+                                    }}</td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="mdi mdi-lead-pencil text-primary" placement="top"
+                                        ngbTooltip="Modifier un paiement" style="font-size: 20px;"
+                                        (click)="onEdit(salaire)"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="mdi mdi-delete text-primary" placement="top"
+                                        ngbTooltip="Supprimer un paiement" style="font-size: 20px;"
+                                        (click)="onDelete(salaire)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer" *ngIf="collectionSize > pageSize">
+                    <ngb-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" [page]="page"
+                        aria-label="Default pagination" class="d-flex justify-content-center"
+                        (pageChange)="pageChange($event)"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

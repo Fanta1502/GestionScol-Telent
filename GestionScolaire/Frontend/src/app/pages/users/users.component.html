@@ -1,0 +1,41 @@
+<div class="page-header">
+    <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+            <i class="mdi mdi mdi-account-multiple"></i>
+        </span>
+        Gestion des comptes utilisateurs
+    </h3>
+    <div style="float: right;">
+        <button class="btn" (click)="onAdd()" placement="top" ngbTooltip="Ajouter un utilisateur"><i
+                class="mdi mdi-account-plus text-primary" style="font-size: 25px;"></i></button>
+    </div>
+</div>
+<div  class="row">
+    <div *ngFor="let user of users">
+        <div class="col-lg"  style="margin: 10px;">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <div class="text-center">
+                            <b style="font-size: 33px;"> {{user.nom}} {{user.prenom}}</b>
+                            <img id="image" src={{user.profilPicture}} alt="profil" width="238px" height="240px"><br>
+                            <hr>
+                            <div> <b>Rôle : </b> {{user.role}}</div>
+                            <div> <b>Poste : </b> {{user.poste}}</div>
+                            <hr>
+                            <div>
+                                <i class="mdi mdi-account text-primary" placement="top"
+                                ngbTooltip="Détails" style="font-size: 25px;"
+                                (click)="detail(user)"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="mdi mdi-lead-pencil text-primary" placement="top"
+                                ngbTooltip="Modifier" style="font-size: 20px;"
+                                (click)="onEdit(user)"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="mdi mdi-delete text-primary" placement="top"
+                                ngbTooltip="Supprimer" style="font-size: 20px;"
+                                (click)="onDelete(user)"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
