@@ -51,6 +51,7 @@ public class DepenseService {
 	{
 		try {
 			List<Object> depenses = depenseDAO.findByIsDeletedIsFalseOrderByDateAsc(LocalDate.now().getYear());
+			depenses.addAll(depenseDAO.findByIsDeletedIsFalseOrderByDateAsc(LocalDate.now().getYear()-1));
 			log.info("Depense response successfully");
 			return depenses;
 		} catch (Exception e) {

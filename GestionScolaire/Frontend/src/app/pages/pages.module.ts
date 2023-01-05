@@ -55,6 +55,8 @@ import { DetailEnsComponent } from './enseignant/detail-ens/detail-ens.component
 import { DetailPerComponent } from './personnel/detail-per/detail-per.component';
 import { DetailDepComponent } from './depense/detail-dep/detail-dep.component';
 import { DetailUserComponent } from './users/detail-user/detail-user.component';
+import { RecuPaiementInscriptionComponent } from './recu-paiement-inscription/recu-paiement-inscription.component';
+import { RecuPaiementMensualiteComponent } from './recu-paiement-mensualite/recu-paiement-mensualite.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -115,7 +117,9 @@ import { DetailUserComponent } from './users/detail-user/detail-user.component';
     DetailEnsComponent,
     DetailPerComponent,
     DetailDepComponent,
-    DetailUserComponent
+    DetailUserComponent,
+    RecuPaiementInscriptionComponent,
+    RecuPaiementMensualiteComponent
   ],
   providers: [],
 })

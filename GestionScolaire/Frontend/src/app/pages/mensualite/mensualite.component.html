@@ -12,20 +12,6 @@
         <div class="card-body">
             <div class="card-title">
                 <div class="row">
-                    <!-- <div class="col-md-3">
-                        <div class="search-field d-none d-md-block">
-                            <form class="d-flex align-items-center h-100" action="#">
-                                <div class="input-group">
-                                    <div class="input-group-prepend  bg-light">
-                                        <i class="input-group-text border-0 mdi mdi-magnify  bg-transparent"></i>
-                                    </div>
-                                    <input type="text" class="form-control bg-light border-0"
-                                        placeholder="Recherche par mode paiement" [(ngModel)]="filterText" name="filterText"
-                                        (change)="onFilterChange()">
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
                     <div class="col" style="float: right;">
                         <div style="float: right;">
                             <button class="btn" (click)="onAdd()" placement="top" ngbTooltip="Ajouter une mensualite"><i
@@ -35,8 +21,8 @@
                         </div>
                     </div>
                 </div>
-                <div   #data id="data" class="table-responsive pt-3">
-                    <table class="table table-bordered">
+                <div #data id="data" class="table-responsive pt-3">
+                    <table class="table table-bordered" >
                         <thead>
                             <tr>
                                 <th>
@@ -74,11 +60,14 @@
                                 <td> {{mensualite.periode.libelle_periode}} : {{mensualite.periode.date_debut_periode | date: "dd/MM/yyyy" }} - {{mensualite.periode.date_fin_periode | date: "dd/MM/yyyy" }}</td>
                                 <td *ngIf="noPrint" class="text-center">
                                     <i class="mdi mdi-lead-pencil text-primary" placement="top"
-                                        ngbTooltip="Modifier un mensualite" style="font-size: 20px; padding-right: 80px;"
+                                        ngbTooltip="Modifier un mensualite" style="font-size: 20px; padding-right: 40px;"
                                         (click)="onEdit(mensualite)"></i>
                                     <i class="mdi mdi-delete text-primary" placement="top"
-                                        ngbTooltip="Supprimer un mensualite" style="font-size: 20px;"
+                                        ngbTooltip="Supprimer un mensualite" style="font-size: 20px;padding-right: 40px;"
                                         (click)="onDelete(mensualite)"></i>
+                                        <i class="mdi mdi-printer text-primary" placement="top"
+                                            ngbTooltip="Imprimer le reçu" style="font-size: 20px;"
+                                            (click)="printRecu(mensualite)"></i>
                                 </td>
                             </tr>
                         </tbody>

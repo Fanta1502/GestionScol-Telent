@@ -7,7 +7,6 @@ import { ENVIRONMENT } from './environments/environment';
 if (ENVIRONMENT.production) {
   enableProdMode();
 }
-import 'zone.js'; //Added for lazy module error in firefox,safari in server.
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

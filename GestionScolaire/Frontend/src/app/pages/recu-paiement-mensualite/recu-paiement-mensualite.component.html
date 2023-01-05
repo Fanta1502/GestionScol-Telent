@@ -1,0 +1,25 @@
+<div class="row" style="padding-left: 20px;margin: 20px;">
+    <div class="col-lg-9">
+        <div *ngIf="etablissement" #data id="data">
+            <img src="{{logo}}" alt="logo"
+                style="text-align: center; border-radius: 10%; width : 170px ;height : 80px;"><br>
+            <h3><b>Reçu de Paiement - Mensualité</b></h3><br>
+            <div>
+                <span style="text-align: left;" id="left">Auteur Payement : <b>{{value.nom_prenom_payeur}}</b> <br>
+                    Pour l'élève : <b>{{currentEleve.nom}} {{this.currentEleve.prenom}}</b> <br>
+                    de Matricule : <b>{{currentEleve.matricule}}</b> <br>
+                    pour la période du : <b>{{value.periode.date_debut_periode | date: "dd/MM/yyyy" }} - {{value.periode.date_fin_periode | date: "dd/MM/yyyy" }}</b> <br></span>
+                <span style="text-align: right;" id="right">Date de Paiement : <b>{{value.date_paiement | date: "dd/MM/yyyy" }}</b> <br>
+                    Mode de paiement : <b>{{value.mode_paiement}}</b> <br>
+                    Montant Payé : <b>{{value.montant_paye}} Francs CFA</b><br>
+                    Montant Restant à Regler : <b>{{value.montant_restant}} Francs CFA</b> <br><br><br>
+                    <b style="font-size: 20px;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Signature</b>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col" style="margin-top: 10%;margin-bottom: 10%; margin-left: 35px;">
+        <button type="submit" class="btn btn-gradient-primary btn-fw" (click)="print()">Imprimer</button><br><br><br>
+        <button type="button" class="btn btn-gradient-dark btn-fw" (click)="close()">Annuler</button>
+    </div>
+</div>

@@ -7,9 +7,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.backend.persistence.dao.EncaissementDAO;
-import com.backend.persistence.dto.DepenseDto;
 import com.backend.persistence.dto.EncaissementDto;
-import com.backend.persistence.entities.Depense;
 import com.backend.persistence.entities.Encaissement;
 import com.backend.persistence.mappers.EncaissementMapper;
 
@@ -22,17 +20,18 @@ import lombok.extern.slf4j.Slf4j;
 public class EncaissementService {
 	private final EncaissementDAO encaissementDAO;
 	private final EncaissementMapper encaissementMapper;
-	
-	public List<Object> all()
-	{
+
+	public List<Object> all() {
 		try {
-			List<Object> encaissements = encaissementDAO.findByIsDeletedIsFalseOrderByDateAsc(LocalDate.now().getYear());
+			List<Object> encaissements;
+			encaissements = encaissementDAO.findByIsDeletedIsFalseOrderByDateAsc(LocalDate.now().getYear());
+			encaissements.addAll(encaissementDAO.findByIsDeletedIsFalseOrderByDateAsc(LocalDate.now().getYear() - 1));
 			log.info("encaissement response successfully");
 			return encaissements;
 		} catch (Exception e) {
 			log.error("There was an error while getting encaissement", e);
 			return null;
-		}		
+		}
 	}
 
 	public EncaissementDto find(String libelle, LocalDate date) {
@@ -45,6 +44,7 @@ public class EncaissementService {
 			return null;
 		}
 	}
+
 	public EncaissementDto add(EncaissementDto encaissementDto) {
 		try {
 			Encaissement encaissement = encaissementMapper.fromDtoToEntity(encaissementDto);
@@ -56,6 +56,7 @@ public class EncaissementService {
 			return null;
 		}
 	}
+
 	public EncaissementDto edit(EncaissementDto encaissementDto) {
 		try {
 			Optional<Encaissement> optional = encaissementDAO.findById(encaissementDto.getId());
@@ -77,13 +78,14 @@ public class EncaissementService {
 			return null;
 		}
 	}
+
 	public EncaissementDto remove(Long id) {
 		Optional<Encaissement> optional = encaissementDAO.findById(id);
 		if (optional.isPresent()) {
 			Encaissement encaissement = optional.get();
 			encaissement.setDeleted(true);
 			encaissementDAO.saveAndFlush(encaissement);
-			log.info("encaissement with id= {} removed successfully",encaissement.getId());
+			log.info("encaissement with id= {} removed successfully", encaissement.getId());
 			return encaissementMapper.fromEntityToDto(encaissement);
 		} else {
 			log.error("Cannot get encaissement");

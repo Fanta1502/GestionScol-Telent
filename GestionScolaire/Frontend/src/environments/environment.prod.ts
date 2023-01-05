@@ -4,8 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
  export const ENVIRONMENT = {
-  API:"/api",
-
-  production: true,
+  API:"http://localhost:9091/api",
+  production: false,
 };
   
